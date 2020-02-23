@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" width="12" height="12">
+	<style>
+		tspan { white-space:pre }
+		.shp0 { fill: #d8d8d8 } 
+		.shp1 { fill: #eb5055 } 
+	</style>
+	<g id="Slider">
+		<g id="iPhone Horizontal">
+			<g id="Cam">
+				<path id="Outer Circle" class="shp0" d="M10.49 6.27C10.49 8.72 8.51 10.7 6.07 10.7C3.63 10.7 1.66 8.72 1.66 6.27C1.66 3.82 3.63 1.84 6.07 1.84C8.51 1.84 10.49 3.82 10.49 6.27Z" />
+				<path id="Red Dot" class="shp1" d="M8.04 6.27C8.04 7.36 7.16 8.24 6.07 8.24C4.99 8.24 4.11 7.36 4.11 6.27C4.11 5.18 4.99 4.3 6.07 4.3C7.16 4.3 8.04 5.18 8.04 6.27Z" />
+			</g>
+		</g>
+	</g>
+</svg>
