@@ -1,1 +1,1 @@
-# singolo
+https://Grigory-m.github.io/singolo/index.html
