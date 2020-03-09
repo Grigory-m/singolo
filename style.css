@@ -24,11 +24,13 @@ a {
   justify-content: space-between;
   align-items: center;
   background-color: #2d303a;  
-  padding: 0 40px;
+  padding: 32px 40px 27px 40px;
 }
 
-.logo {
-  margin: 32px 0 27px;
+.logo::after {
+  content: "*";
+  color: #f06c64;
+  font-size: 2.5rem;
 }
 
 h1 {
@@ -41,11 +43,6 @@ h1 {
   line-height: 0.6rem;
   
  }
-
-.logo_star {
-  color: #f06c64;
-  font-size: 2.5rem;
-}
 
 .header-nav ul {
   display: flex;
@@ -71,7 +68,7 @@ h1 {
 
 .header-nav li a {
   position: relative;
-  top: 5px;
+  top: 3px;
   font-size: 1.2rem;
   font-family: "Lato", Verdana, sans-serif;
   font-weight: bold;
@@ -303,6 +300,11 @@ h5 {
   border: 1px solid #c5c5c5;
 }
 
+.button_selected:hover {
+  color: #666d89;
+  border: 1px solid #666d89;
+}
+
 .layout-4-column {
   display: flex;
   justify-content: space-between;
@@ -346,6 +348,7 @@ h5 {
   color: #767e9e;
   font-family: "Lato", Verdana, sans-serif;
   font-weight: 400; 
+  text-align: justify;
 }
 
 .social-media {
@@ -510,6 +513,7 @@ h5 {
   margin: 0 0 21px;
   letter-spacing: -0.1px;
   hyphens: auto;
+  text-align: justify;
 }
 
 .contact {
