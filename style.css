@@ -526,6 +526,10 @@ h5 {
   font-weight: 400;
 }
 
+.contact a {
+  color: #f0d8d9;
+}
+
 .contact__icon {
   display: flex;
   align-items: center;
