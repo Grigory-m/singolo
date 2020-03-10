@@ -219,6 +219,7 @@ h1 {
   font-weight: 400;
   hyphens: auto;
   text-align: justify;
+  overflow: hidden;
 }
 
 .services-description__image {
@@ -248,6 +249,7 @@ h5 {
   font-family: 'Lato', Verdana, sans-serif;
   font-weight: 900;
   white-space: nowrap;
+  overflow: hidden;
 }
 
 .portfolio {
