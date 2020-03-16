@@ -79,7 +79,12 @@ h1 {
   color: #f06c64;
 }
 
+.navlink-active-js {
+  color: #f06c64;
+}
+
 .slider {
+  display: flex;
   position: relative;
   padding: 180px 136px 210px 111px;
   background-color: #f06c64; 
@@ -96,14 +101,17 @@ h1 {
 .slider-items {
   display: flex;  
   justify-content: space-between;   
+  transition: .3s ease-in-out;
+}
+
+.disabled-js {
+  display: none;
 }
 
 .iphone__screen {
-  border: 3px solid #c7c8c7;
-}
-
-.iphone__screen img {
-  display: block;
+  cursor: pointer;
+  height: 194px;
+  width: 339px;
 }
 
 .vertical {
@@ -116,6 +124,18 @@ h1 {
 .horizontal {
   right: 143px;
   box-shadow: 26px 26px #ce5d56; 
+}
+
+.horizontal__image {
+  background: url("./assets/images/iphone/hor_background.jpg");
+}
+
+.vertical__image {
+  background: url("./assets/images/iphone/ver_background.jpg");
+}
+
+.screen-disabled {
+  background: black;
 }
 
 .iphone__cam {
@@ -134,6 +154,7 @@ h1 {
   position: absolute;
   top: 86px;
   left: 8px;
+  cursor: pointer;
 }
 
 .arrow {
@@ -267,6 +288,10 @@ h5 {
   font-weight: 300;
 }
 
+.portfolio img {
+  cursor: pointer;
+}
+
 .navigation {
   display: flex;
   margin-bottom: 18px;
@@ -296,15 +321,22 @@ h5 {
   border: 1px solid #c5c5c5;
 }
 
-.button_selected {
-  padding: 6px 7px 8px 7px;
+.button-active-js {
   color: #dedede;
   border: 1px solid #c5c5c5;
+  outline: none;
 }
 
-.button_selected:hover {
-  color: #666d89;
-  border: 1px solid #666d89;
+.img-selected-js {
+  border: 5px solid #f06c64;
+}
+
+.button:first-child {
+  padding: 6px 7px 8px 7px;
+}
+
+.button:focus {
+  outline: none;
 }
 
 .layout-4-column {
@@ -391,6 +423,7 @@ h5 {
 }
 
 .get-a-quote {
+  position: relative;
   background-color: #f06c64;
   padding: 70px 40px 28px;
   box-shadow: inset 0 -6px #ea676b;
@@ -405,7 +438,7 @@ h5 {
   margin: 0 0 29px;
 }
 
-.get-a-quote p {
+.get-a-quote-text {
   font-size: 1.8rem;
   line-height: 3rem;
   color: #f0d8d9;
@@ -428,6 +461,14 @@ h5 {
   flex-basis: 32.0212%;
 }
 
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus  {
+  border: none;
+  -webkit-text-fill-color: #f0d8d9;
+  -webkit-box-shadow: 0 0 0px 50px #d6564f inset;  
+}
+
 .form input {
   width: 100%;
   border: transparent;
@@ -442,7 +483,7 @@ h5 {
 }
 
 .form input:focus {
-  outline: 3px solid rgb(94, 12, 12, 0.25);  
+  outline: 3px solid rgb(94, 12, 12, 0.25);
 }
 
 .form input::placeholder {
@@ -496,6 +537,42 @@ h5 {
 .form button:hover {
   cursor: pointer;  
 }
+
+.alert-js {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  top: 60%;
+  left: 40%;
+  padding: 20px;
+  font-size: 2rem;
+  color: #d6564f;
+  background-color: #f0d8d9 ;
+  border: 1px solid #d6564f;
+  border-radius: 15px;
+}
+
+.alert-js__text {
+  font-size: 2rem;
+  color: #d6564f;
+}
+
+.alert-js__button {
+  font-size: 1.5rem;
+  color: #d6564f;
+  border: 1px solid #d6564f;
+  border-radius: 10px;
+  padding: 5px;
+  margin: 5px 0 0;
+  cursor: pointer;
+}
+
+.alert-js__button:focus {
+  outline: none;
+}
+
 
 .contact-information h4 {
   font-size: 1.8rem;

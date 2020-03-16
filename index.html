@@ -13,11 +13,11 @@
       <a  class="logo" href="#"><h1>singolo</h1></a>
         <nav class="header-nav">
           <ul>
-            <li><a class="selected" href="#">home</a></li>
-            <li><a href="#">services</a></li>
-            <li><a href="#">portfolio</a></li>
-            <li><a href="#">about</a></li>
-            <li><a href="#">contact</a></li>
+            <li><a class="selected" href="#home">home</a></li>
+            <li><a href="#services">services</a></li>
+            <li><a href="#portfolio">portfolio</a></li>
+            <li><a href="#about-us">about</a></li>
+            <li><a href="#contact">contact</a></li>
           </ul>
         </nav>          
     </header>
@@ -27,29 +27,31 @@
     <div class="slider">
       <div class="slider-items">
         <div class="iphone vertical">
-          <div class="iphone__screen">
-            <img src="./assets/images/iphone/layer_vertical.jpg" alt="iphone">
-          </div>
-          <img class="iphone__cam" src="./assets/images/iphone/cam.svg" alt="">
+          <div class="iphone__screen vertical__image"></div>
           <img class="iphone__home_button" src="./assets/images/iphone/home_button.svg" alt="">
+          <img class="iphone__cam" src="./assets/images/iphone/cam.svg" alt="">
           <img class="iphone__speaker" src="./assets/images/iphone/speaker.svg" alt="">
         </div>
         <div class="iphone horizontal">
-          <div class="iphone__screen">
-            <img src="./assets/images/iphone/layer_horizontal.jpg" alt="iphone">
-          </div>
-          <img class="iphone__cam" src="./assets/images/iphone/cam.svg" alt="">
+          <div class="iphone__screen horizontal__image"></div>
           <img class="iphone__home_button" src="./assets/images/iphone/home_button.svg" alt="">
+          <img class="iphone__cam" src="./assets/images/iphone/cam.svg" alt="">          
           <img class="iphone__speaker" src="./assets/images/iphone/speaker.svg" alt="">
         </div>          
       </div>  
+      <div class="slider-items disabled-js">
+        <div class="tel">
+          <img src="./assets/images/js/tel.png" alt="">
+        </div>
+       
+      </div>
       <div class="arrow prev"></div>
       <div class="arrow next"></div>      
     </div>
   </div>
   
   <div class="wrapper">
-    <section class="services">
+    <section id="services" class="services">
       <h2>Our Services</h2>
       <p class="services-text">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum. Duis mollis, non commodo luctus, nisi erat
         porttitor ligula, eget lacinia odio sem nec elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
@@ -121,7 +123,7 @@
   </div>
 
   <div class="wrapper">
-    <section class="portfolio">    
+    <section id="portfolio" class="portfolio">    
       <h2>Portfolio</h2>
       <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
       <div class="navigation">
@@ -152,7 +154,7 @@
   </div>  
 
   <div class="wrapper">
-    <section class="about-us">    
+    <section id="about-us" class="about-us">    
       <h2>About Us</h2>
       <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum. Duis mollis, non commodo luctus,
          nisi erat porttitor ligula, eget lacinia odio sem nec elit. Fusce dapibus, tellus ac cursus commodo,
@@ -196,9 +198,9 @@
     </div> 
     
     <div class="wrapper">
-      <section class="get-a-quote">    
+      <section id="contact" class="get-a-quote">    
         <h2>Get a Quote</h2>
-        <p>Fusce dapibus, tellus ac cursus commodo, 
+        <p class="get-a-quote-text">Fusce dapibus, tellus ac cursus commodo, 
           tortor mauris condimentum. Duis mollis, non commodo luctus, nisi erat porttitor ligula, 
           eget lacinia odio sem nec elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
         <div class="layout-2-column">
@@ -206,14 +208,14 @@
             <input type="text" name="name" placeholder="Name (Required)" required>
             <input type="email" name="email" placeholder="Email (Required)" required>
             <input type="text" name="subject" placeholder="Subject">
-            <textarea name="" id="" cols="30" rows="14" style="resize: none;" placeholder="Describe your project in detail..."></textarea>
+            <textarea name="describe" id="" cols="30" rows="14" style="resize: none;" placeholder="Describe your project in detail..."></textarea>
             <button type="submit">Submit</button>
           </form>
           <div class="contact-information">
             <h4>Contact Information</h4>
             <p>Quisque hendrerit purus dapibus, ornare nibh vitae, viver&shyra nibh. Fusce vitae aliquam
                tellus. Proin sit amet volutpat libero. Nulla sed nunc et tortor luctus faucibus. 
-               Morbi at aliquet turpis, et consequat felis. </p>
+               Morbi at aliquet turpis, et consequat felis. </pclass="get-a-quote-text">
             <div class="contact">
               <span class="contact__icon"><img src="./assets/images/get-a-quote/location.png" alt="location"></span>
               <span>Elm St. 14/05 Lost City</span>
@@ -245,6 +247,6 @@
         </div>
       </footer>
     </div>  
-     
+    <script src="script.js"></script> 
 </body>
 </html>
