@@ -17,24 +17,24 @@ window.onload = function(e) {
 
   //Slider
   let i = 1;
-  const images = document.querySelectorAll('.slider-items');
+  const slides = document.querySelectorAll('.slide');
   const next = document.querySelector('.next');
   const prev = document.querySelector('.prev');
   next.addEventListener('click', nextArrowHandler);
   prev.addEventListener('click', prevArrowHandler);
 
   function nextArrowHandler(e) {
-    images[i].classList.remove('disabled-js');
+    slides[i].classList.remove('disabled-js');
     i++;
-    if (i >= images.length) i = 0;
-    images[i].classList.add('disabled-js');    
+    if (i >= slides.length) i = 0;
+    slides[i].classList.add('disabled-js');    
   }
 
   function prevArrowHandler() {
-      images[i].classList.remove('disabled-js');
+      slides[i].classList.remove('disabled-js');
       i--;
-      if (i < 0) i = images.length - 1;
-      images[i].classList.add('disabled-js');
+      if (i < 0) i = slides.length - 1;
+      slides[i].classList.add('disabled-js');
   }
 
   const slider = document.querySelector('.slider');
@@ -42,6 +42,7 @@ window.onload = function(e) {
 
   function changeBackground(e) {
     let target = e.target.previousElementSibling;
+    if (!target) return;
     target.classList.toggle('screen-disabled');              
   }
 

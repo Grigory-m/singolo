@@ -9,6 +9,7 @@ html {
 }
 
 .wrapper {
+  position: relative;
   max-width: 1020px;
   margin: 0 auto;
 } 
@@ -106,6 +107,7 @@ h1 {
 
 .disabled-js {
   display: none;
+  transition: all 0.3s;
 }
 
 .iphone__screen {
