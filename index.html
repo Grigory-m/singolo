@@ -8,39 +8,43 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="wrapper">
-    <header class="header">
+  <div class="wrapper header-wrapper">
+    <header class="header" id="home">
       <a  class="logo" href="#"><h1>singolo</h1></a>
         <nav class="header-nav">
           <ul>
-            <li><a class="selected" href="#home">home</a></li>
-            <li><a href="#services">services</a></li>
-            <li><a href="#portfolio">portfolio</a></li>
-            <li><a href="#about-us">about</a></li>
-            <li><a href="#contact">contact</a></li>
+            <li><a class="selected" href="#home" data-top="0" data-bottom="150">home</a></li>
+            <li><a href="#services" data-top="500" data-bottom="950">services</a></li>
+            <li><a href="#portfolio" data-top="950" data-bottom="1600">portfolio</a></li>
+            <li><a href="#about" data-top="1600" data-bottom="2300">about</a></li>
+            <li><a href="#contact" data-top="2300" data-bottom="2900">contact</a></li>
           </ul>
         </nav>          
     </header>
   </div>
   
-  <div class="wrapper">
-    <div class=" slide slider">
-      <div class="slider-items">
-        <div class="iphone vertical">
-          <div class="iphone__screen vertical__image"></div>
-          <img class="iphone__home_button" src="./assets/images/iphone/home_button.svg" alt="">
-          <img class="iphone__cam" src="./assets/images/iphone/cam.svg" alt="">
-          <img class="iphone__speaker" src="./assets/images/iphone/speaker.svg" alt="">
-        </div>
-        <div class="iphone horizontal">
-          <div class="iphone__screen horizontal__image"></div>
-          <img class="iphone__home_button" src="./assets/images/iphone/home_button.svg" alt="">
-          <img class="iphone__cam" src="./assets/images/iphone/cam.svg" alt="">          
-          <img class="iphone__speaker" src="./assets/images/iphone/speaker.svg" alt="">
+  <div class="wrapper slider-wrapper">
+    <div class="slider">
+      <div class="slide slide-first">
+        <div class="slider-items">
+          <div class="iphone vertical">
+            <div class="iphone__screen vertical__image"></div>
+            <img class="iphone__home_button" src="./assets/images/iphone/home_button.svg" alt="">
+            <img class="iphone__cam" src="./assets/images/iphone/cam.svg" alt="">
+            <img class="iphone__speaker" src="./assets/images/iphone/speaker.svg" alt="">
+          </div>
+          <div class="iphone horizontal">
+            <div class="iphone__screen horizontal__image"></div>
+            <img class="iphone__home_button" src="./assets/images/iphone/home_button.svg" alt="">
+            <img class="iphone__cam" src="./assets/images/iphone/cam.svg" alt="">          
+            <img class="iphone__speaker" src="./assets/images/iphone/speaker.svg" alt="">
+          </div>          
         </div>          
-      </div>          
-    </div>
-    <img class="slide disabled-js" src="./assets/images/js/Slide-2.png" alt="">
+      </div>
+      <div class="slide slide-second">
+        <img src="./assets/images/js/Slide-2.png" alt="">
+      </div>
+    </div>   
     <div class="arrow prev"></div>
     <div class="arrow next"></div>   
   </div>
@@ -132,24 +136,20 @@
         <img src="./assets/images/portfolio/ice_cream.jpg" alt="">
         <img src="./assets/images/portfolio/fortress.jpg" alt="">
         <img src="./assets/images/portfolio/robot.jpg" alt="">
-      </div>
-      <div class="layout-4-column">
         <img src="./assets/images/portfolio/animals.jpg" alt="">
         <img src="./assets/images/portfolio/sdk.jpg" alt="">
         <img src="./assets/images/portfolio/machines.jpg" alt="">
         <img src="./assets/images/portfolio/birds.jpg" alt="">
-      </div>
-      <div class="layout-4-column">
         <img src="./assets/images/portfolio/monster-moon.jpg" alt="">
         <img src="./assets/images/portfolio/killer.jpg" alt="">
         <img src="./assets/images/portfolio/monster-white.jpg" alt="">
         <img src="./assets/images/portfolio/broken-glass.jpg" alt="">
-      </div>
+      </div>      
     </section>  
   </div>  
 
   <div class="wrapper">
-    <section id="about-us" class="about-us">    
+    <section id="about" class="about-us">    
       <h2>About Us</h2>
       <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum. Duis mollis, non commodo luctus,
          nisi erat porttitor ligula, eget lacinia odio sem nec elit. Fusce dapibus, tellus ac cursus commodo,

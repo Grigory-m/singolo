@@ -2,7 +2,9 @@ window.onload = function(e) {
   //Header
   const nav = document.querySelector('.header-nav ul');
   nav.addEventListener('click', linkChangeColor);
+  nav.addEventListener('click', scrollPosition);
   let selectedLink;
+ 
   function linkChangeColor(e) {
     let target = e.target;
     if (target.tagName !=='A') return;
@@ -10,31 +12,90 @@ window.onload = function(e) {
   }
 
   function highlightLink(link) {
-    if (selectedLink) selectedLink.classList.remove('navlink-active-js');
+    if (selectedLink) selectedLink.classList.remove('link-active');
     selectedLink = link;
-    selectedLink.classList.add('navlink-active-js');
+    selectedLink.classList.add('link-active');
+  }
+
+  function scrollPosition(e) {
+    let elem = document.getElementById(`${e.target.innerHTML}`);
+    if (!elem) return;
+    let item = elem.getBoundingClientRect();
+    let start = Date.now();   
+    let top = item.top - 50;
+    let current = pageYOffset;
+    if (elem.id === 'home') top = -pageYOffset;
+    let timer = setInterval(function() {
+      let time = Date.now() - start;
+      if (time >= Math.abs(top*2)) {
+        clearInterval(timer); 
+        return;
+      }
+      if (top < 0) {
+        document.documentElement.scrollTop = current - time/2;
+      } else {
+        document.documentElement.scrollTop = current + time/2;
+      }      
+    }, 50);
+  }
+
+  window.onscroll = function (e) {
+    let target = e.target;
+    Array.from(target.all).forEach(i => {
+      if (i.tagName === 'SECTION') {
+        let elem = i.getBoundingClientRect();
+        let topPosition = elem.top + pageYOffset - 245;
+        let bottomPosition = elem.bottom + pageYOffset - 245;
+        let hash = '#' + i.id;
+        if (pageYOffset >= topPosition && pageYOffset < bottomPosition) {
+          document.querySelector(`[href="${hash}"]`).classList.add('link-active');
+        } else {
+          document.querySelector(`[href="${hash}"]`).classList.remove('link-active');
+        }
+      }
+      if (i.tagName === 'HEADER') {
+        let hash = '#' + i.id;
+        if (pageYOffset < 300) {
+          document.querySelector(`[href="${hash}"]`).classList.add('link-active');
+        } else {
+          document.querySelector(`[href="${hash}"]`).classList.remove('link-active');
+        }
+      }
+    })
   }
 
   //Slider
-  let i = 1;
-  const slides = document.querySelectorAll('.slide');
-  const next = document.querySelector('.next');
-  const prev = document.querySelector('.prev');
-  next.addEventListener('click', nextArrowHandler);
-  prev.addEventListener('click', prevArrowHandler);
-
-  function nextArrowHandler(e) {
-    slides[i].classList.remove('disabled-js');
-    i++;
-    if (i >= slides.length) i = 0;
-    slides[i].classList.add('disabled-js');    
+  const allSlides = document.querySelectorAll('.slide').length
+  const slideRow = document.querySelector('.slider')
+  const slideView = document.querySelector('.slider-wrapper')
+  const prevButton = document.querySelector('.prev')
+  const nextButton = document.querySelector('.next')
+      
+  prevButton.addEventListener('click', prev)
+  nextButton.addEventListener('click', next)
+    
+  function next() {
+    slideRow.classList.add('left');
+    slideRow.addEventListener('animationend', handler); 
+    function handler() {
+      let clone = slideRow.children[0].cloneNode(true);
+      slideRow.append(clone);
+      slideRow.removeChild(slideRow.children[0]);
+      this.classList.remove('left');
+      slideRow.removeEventListener('animationend', handler); 
+    }
   }
 
-  function prevArrowHandler() {
-      slides[i].classList.remove('disabled-js');
-      i--;
-      if (i < 0) i = slides.length - 1;
-      slides[i].classList.add('disabled-js');
+  function prev() {
+    let clone = slideRow.children[allSlides- 1].cloneNode(true);
+    slideRow.prepend(clone);
+    slideRow.removeChild(slideRow.children[allSlides]);      
+    slideRow.classList.add('right')
+    slideRow.addEventListener('animationend', handler); 
+    function handler() {
+       this.classList.remove('right');
+       slideRow.removeEventListener('animationend', handler);
+    } 
   }
 
   const slider = document.querySelector('.slider');
@@ -43,13 +104,13 @@ window.onload = function(e) {
   function changeBackground(e) {
     let target = e.target.previousElementSibling;
     if (!target) return;
-    target.classList.toggle('screen-disabled');              
+    target.classList.toggle('screen-disabled');    
   }
 
   //Portfolio
   const navigation = document.querySelector('.navigation');
   let selectedButton, selectedImage;
-  const portfolioLayouts = document.querySelectorAll('.layout-4-column');
+  const portfolioLayout = document.querySelector('.layout-4-column');
   const portfolio = document.querySelector('.portfolio');
   navigation.addEventListener('click', checkButton);
   portfolio.addEventListener('click', checkImage);
@@ -68,7 +129,7 @@ window.onload = function(e) {
   }
 
   function imageChangePosition(e) {
-    portfolioLayouts.forEach(i => i.lastElementChild.after(i.firstElementChild));   
+    portfolioLayout.lastElementChild.after(portfolioLayout.firstElementChild);   
   }
 
   function checkImage(e) {
@@ -94,25 +155,24 @@ window.onload = function(e) {
     div.className = "alert-js";
     div.innerHTML = 'Письмо отправлено';
     Array.from(form.children).forEach(i => {
-    if (i.name === 'subject') {
-      div.insertAdjacentHTML('beforeend', `<p class="alert-js__text">Тема: ${i.value}</p>`)
-    } else if (i.name === 'subject' && i.value === '') {
-        div.insertAdjacentHTML('beforeend', '<p class="alert-js__text">Без темы</p>')
+    if (i.name === 'subject' && i.value === '') {
+      div.insertAdjacentHTML('beforeend', `<p class="alert-js__text">Без темы</p>`);
+    } else if (i.name === 'subject') {
+        div.insertAdjacentHTML('beforeend', `<p class="alert-js__text">Тема: ${i.value}</p>`);
       }
-
-    if (i.name === 'describe') {
-      div.insertAdjacentHTML('beforeend', `<p class="alert-js__text">Описание: ${i.value}</p>`)
-    } else if (i.name === 'describe' && i.value === '') {
-        div.insertAdjacentHTML('beforeend', '<p class="alert-js__text">Без описания</p>')
+    if (i.name === 'describe' && i.value === '') {
+      div.insertAdjacentHTML('beforeend', `<p class="alert-js__text">Без описания</p>`);
+    } else if (i.name === 'describe') {
+        div.insertAdjacentHTML('beforeend', `<p class="alert-js__text">Описание: ${i.value}</p>`);
       }
     })
-    div.insertAdjacentHTML('beforeend', '<button class="alert-js__button">OK</button>')
+    div.insertAdjacentHTML('beforeend', '<button class="alert-js__button">OK</button>');
     getAQuote.append(div); 
     const alertButton = document.querySelector('.alert-js__button');
     alertButton.addEventListener('click', closeAlert);   
     function closeAlert() {
       div.remove();
+      Array.from(form.children).forEach(i => i.value = '');
     }
-  }  
-  
+  }    
 }

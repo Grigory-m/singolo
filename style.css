@@ -11,7 +11,7 @@ html {
 .wrapper {
   position: relative;
   max-width: 1020px;
-  margin: 0 auto;
+  margin: 0 auto; 
 } 
 
 a {
@@ -21,11 +21,17 @@ a {
 }
 
 .header {
+  position: fixed;
+  top: 0;  
+  width: 100%;
+  max-width: inherit;
+  z-index: 1000;
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: #2d303a;  
   padding: 32px 40px 27px 40px;
+  border-bottom: 6px solid #323746;
 }
 
 .logo::after {
@@ -41,7 +47,7 @@ h1 {
   font-family: "Lato", Verdana, sans-serif;
   font-weight: bold; 
   font-size: 2.5rem; 
-  line-height: 0.6rem;
+  line-height: 3rem;
   
  }
 
@@ -52,44 +58,69 @@ h1 {
 }
 
 .header-nav li {
-  padding-right: 25px;
-  padding-left: 3px;
-  list-style-type: square;  
-  color: #494e62;
+  position: relative;
+  padding-right: 33px;
+  list-style-type: none;  
+}
+
+.header-nav li:not(:last-child):before {
+  display: block;
+  position: absolute;
+  top: 6px;
+  right: 14px;
+  content: "";
+  background-color: #fff;
+  width: 3px;
+  height: 3px;
+  border-radius: 100%;  
 }
 
 .header-nav li:last-child {
   padding-right: 0;
 }
 
-.header-nav li:first-child {
-  list-style: none;
-  padding-left: 0;
-}
-
 .header-nav li a {
-  position: relative;
-  top: 3px;
   font-size: 1.2rem;
+  line-height: 1.4rem;
   font-family: "Lato", Verdana, sans-serif;
   font-weight: bold;
   text-transform: uppercase;
+  letter-spacing: -0.035em;
 }
 
 .header-nav li a:hover {
   color: #f06c64;
 }
 
-.navlink-active-js {
+.link-active {
   color: #f06c64;
+}
+
+.slider-wrapper {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  margin-top: 89px;
 }
 
 .slider {
   display: flex;
   position: relative;
-  padding: 180px 136px 210px 111px;
+  width: calc(100% * 2);
+  top: 0;
+  left: 0;
+}
+
+.slide-first {
+  display: flex;
+  position: relative;
+  padding: 180px 136px 198px 111px;
   background-color: #f06c64; 
-  box-shadow: inset 0 6px #323746, inset 0 -15px 11px #ea676b;
+  box-shadow: inset 0 -5px #ea676b;
+}
+
+.slide-second img{
+  display: block;
 }
 
 .iphone {
@@ -102,12 +133,29 @@ h1 {
 .slider-items {
   display: flex;  
   justify-content: space-between;   
-  transition: .3s ease-in-out;
 }
 
-.disabled-js {
-  display: none;
-  transition: all 0.3s;
+.slide {
+  width: calc(100% / 2); 
+}
+
+
+.left {
+  animation: left 0.6s ease-in-out;
+}
+
+.right {
+   animation: right 0.6s ease-in-out;
+}
+
+@keyframes left {
+  from {left: 0;}
+  to {left: -100%;}  
+}
+
+@keyframes right {
+  from {left: -100%;}
+  to {left: 0;}
 }
 
 .iphone__screen {
@@ -171,12 +219,12 @@ h1 {
 }
 
 .next {
-  background-image: url('./assets/images/iphone/next_arrow.svg');
+  background: url('./assets/images/iphone/next_arrow.svg') no-repeat;
   right: 40px;
 }
 
 .prev {
-  background-image: url('./assets/images/iphone/prev_arrow.svg');
+  background: url('./assets/images/iphone/prev_arrow.svg') no-repeat;
   left: 42px;
   
 }
@@ -184,6 +232,10 @@ h1 {
 .layout-3-column {
   display: flex;
   justify-content: space-between;
+}
+
+#services {
+  scroll-behavior: ;
 }
 
 .services {
@@ -344,6 +396,7 @@ h5 {
 .layout-4-column {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   overflow: hidden;
 }
 
@@ -641,4 +694,70 @@ input:-webkit-autofill:focus  {
   margin-right: 2px;
 }
 
+@media screen and (max-width: 768px) {
 
+  .header {
+    padding: 29px 40px 33px 40px;
+  }
+  
+  .header-nav li:before {
+    border-radius: 0; 
+    width: 2px;
+    height: 2px; 
+  }
+  
+  .slider {
+    padding: 133px 103px 156px 84px;  
+  }
+  
+  .iphone {
+    border-radius: 27px;
+    padding: 11px 49px 11px 45px;  
+  }
+  
+  .iphone__screen {
+    height: 141px;
+    width: 251px;
+  }
+  
+   .vertical {
+    right: 91px;
+  }
+  
+  .horizontal {
+    right: 109px;
+  }
+
+  .horizontal__image {
+    background: url("./assets/images/iphone/hor_background-tablet.jpg") no-repeat;
+  }
+  
+  .vertical__image {
+    background: url("./assets/images/iphone/ver_background-tablet.jpg") no-repeat;
+  }
+    
+  .iphone__cam {
+    top: calc(50% - 1.5px);
+    right: 12px;
+  }
+  
+  .iphone__speaker {
+    top: calc(50% - 13.5px);
+    right: 27px;
+  }
+  
+  .iphone__home_button {
+    top: calc(50% - 15.5px);
+    left: 6px;
+    width: 31px;
+    height: 31px;
+  }
+  
+  .next {
+    right: 26px;
+  }
+  
+  .prev {
+    left: 30px;    
+  } 
+}
