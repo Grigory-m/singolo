@@ -430,6 +430,11 @@ h5 {
   width: 31.915%;
 }
 
+.our-employee img {
+  width: 100%;
+  height: auto;
+}
+
 .our-employee p {
   margin: 9px 0 24px;
   font-size: 1.2rem;
@@ -699,25 +704,38 @@ input:-webkit-autofill:focus  {
 
 @media screen and (max-width: 768px) {
 
-  .header {
-    padding: 29px 40px 33px 40px;
-  }
-  
   .header-nav li:before {
     border-radius: 0; 
     width: 2px;
     height: 2px; 
   }
-  
-  .slider {
-    padding: 133px 103px 156px 84px;  
+
+  .slider-wrapper {
+    margin-top: 95px;
   }
-  
+   
   .iphone {
-    border-radius: 27px;
-    padding: 11px 49px 11px 45px;  
+    padding: 10px 48px 10px 46px;  
   }
   
+  .slider-items {
+    display: flex;  
+    justify-content: space-between;   
+  }
+  
+  .slide {
+    width: calc(100% / 2); 
+  }
+
+  .slide-second img{
+    width: 768px;
+    height: 452px;
+  }
+
+  .slide-first {
+    padding: 133px 103px 156px 81px;  
+  }
+
   .iphone__screen {
     height: 141px;
     width: 251px;
@@ -725,10 +743,12 @@ input:-webkit-autofill:focus  {
   
    .vertical {
     right: 91px;
+    box-shadow: -19px 19px #ce5d56;
   }
   
   .horizontal {
     right: 109px;
+    box-shadow: 19px 19px #ce5d56;
   }
 
   .horizontal__image {
@@ -738,7 +758,7 @@ input:-webkit-autofill:focus  {
   .vertical__image {
     background: url("./assets/images/iphone/ver_background-tablet.jpg") no-repeat;
   }
-    
+
   .iphone__cam {
     top: calc(50% - 1.5px);
     right: 12px;
@@ -757,10 +777,13 @@ input:-webkit-autofill:focus  {
   }
   
   .next {
-    right: 26px;
+    right: 27px;
   }
   
   .prev {
     left: 30px;    
-  } 
+  }  
+
+  
+
 }
