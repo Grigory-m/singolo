@@ -27,16 +27,16 @@ window.onload = function(e) {
     if (elem.id === 'home') top = -pageYOffset;
     let timer = setInterval(function() {
       let time = Date.now() - start;
-      if (time >= Math.abs(top*2)) {
+      if (time >= Math.abs(top)) {
         clearInterval(timer); 
         return;
       }
       if (top < 0) {
-        document.documentElement.scrollTop = current - time/2;
+        document.documentElement.scrollTop = current - time;
       } else {
-        document.documentElement.scrollTop = current + time/2;
+        document.documentElement.scrollTop = current + time;
       }      
-    }, 50);
+    }, 5);
   }
 
   window.onscroll = function (e) {
@@ -174,5 +174,39 @@ window.onload = function(e) {
       div.remove();
       Array.from(form.children).forEach(i => i.value = '');
     }
-  }    
+  }  
+  
+  const header = document.querySelector('.header');
+  const logo = document.querySelector('.logo').cloneNode(true);
+  const burger = document.querySelector('.burger');
+  const menu = document.querySelector('.header-nav').cloneNode(true); 
+  burger.addEventListener('click', modalHandler);
+  
+  let div = document.createElement('div');
+  let openModal = false;
+  div.classList.add('overlay');
+  div.insertAdjacentHTML('afterbegin', `<div class="modal"></div>`);
+  div.firstElementChild.append(menu);
+  div.firstElementChild.append(logo);
+  menu.style.display = 'block';
+  
+  function modalHandler(e) {
+    if (openModal) {
+      closeModal();
+      return;
+    }
+    div.firstElementChild.prepend(burger);
+    document.body.append(div);
+    burger.classList.add('burger-rotate');
+    menu.addEventListener('click', closeModal);
+    openModal = true;
+
+    function closeModal() {
+      div.remove();
+      header.prepend(burger);
+      burger.classList.remove('burger-rotate');
+      openModal = false;
+    }
+  } 
+  
 }

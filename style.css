@@ -24,8 +24,8 @@ a {
   position: fixed;
   top: 0;  
   width: 100%;
+  z-index: 1;
   max-width: inherit;
-  z-index: 1000;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -34,7 +34,109 @@ a {
   border-bottom: 6px solid #323746;
 }
 
-.logo::after {
+.burger {
+  display: none;
+  position: relative;
+  width: 25px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.burger__line {
+  display: inline-block;
+  position: absolute;
+  height: 2.4px;
+  width: 100%;
+  background: #ffffff;
+  border-radius: 5px;
+  top: calc(50% - 1.2px);
+}
+
+.burger:after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  height: 2.4px;
+  width: 100%;
+  background: #ffffff;
+  border-radius: 5px;
+  left: 0;
+  bottom: 0;
+}
+
+.burger:before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  height: 2.4px;
+  width: 100%;
+  background: #ffffff;
+  border-radius: 5px;
+  top: 0;
+  left: 0;
+}
+
+.burger-rotate {
+  transform: rotate(90deg);
+  transition: transform 0.5s;
+  top: 22px;
+  left: 23px;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  background: rgba(0, 0, 0, 0.4);  
+}
+
+.modal {
+  position: relative;
+  width: 278px;
+  height: 100%;
+  background: #2D303A;
+}
+
+.modal .logo {
+  padding: 24px 0 0 71px;
+} 
+
+.modal .header-nav {
+  position: absolute;
+  top: 232px;
+  left: 71px;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal .header-nav ul {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.modal .header-nav ul li{
+  padding: 0 0 27px;
+}
+
+.modal .header-nav ul li:last-child{
+  padding: 0;
+}
+
+.modal .header-nav ul li:before{
+  content: none;
+}
+
+.modal .header-nav ul li a{
+  font-size: 2.4rem;
+  line-height: 2.9rem;
+  letter-spacing: -0.035em;
+}
+
+.logo:after {
   content: "*";
   color: #f06c64;
   font-size: 2.5rem;
@@ -153,7 +255,8 @@ h5 {
 
 .slider-items {
   display: flex;  
-  justify-content: space-between;   
+  justify-content: space-between; 
+  align-items: center;  
 }
 
 .slide {
@@ -355,7 +458,7 @@ h5 {
   display: flex;
   flex-wrap: wrap;
   overflow: hidden;
-  margin-left: -10px;
+  margin: 0 -10px;
 }
 
 .layout-4-column img {
@@ -365,16 +468,13 @@ h5 {
 }
 
 .portfolio-image {
-  margin: 0 0 20px 20px;
+  margin: 0 10px 20px 10px;
   flex-basis: calc(100% / 4 - 20px);
 }
 
-.portfolio h2 {
-  margin-left: 10px;
-}
 
 .portfolio p {
-  margin: 14px 0 10px 10px;
+  margin: 14px 0 10px 0;
   font-size: 1.8rem;
   line-height: 3rem;
   color: #767e9e;
@@ -389,7 +489,6 @@ h5 {
 .navigation {
   display: flex;
   margin-bottom: 18px;
-  margin-left: 10px;
 }
 
 .button {
@@ -457,7 +556,7 @@ h5 {
 }
 
 .our-employee {
-  width: 31.915%;
+  flex-basis: 31.915%;
 }
 
 .our-employee img {
@@ -540,15 +639,16 @@ h5 {
 
 .layout-2-column {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
 }
 
 .form {
-  flex-basis: 66.0638%;
+  flex-basis: 65.95744%;
 }
 
 .contact-information {
-  flex-basis: 32.0212%;
+  flex-basis: 31.9149%;
 }
 
 input:-webkit-autofill,
@@ -564,12 +664,11 @@ input:-webkit-autofill:focus  {
   border: transparent;
   border-radius: 5px;
   background-color: #d6564f;
-  padding: 11px 0 13px 15px;
-  margin: 0 0 12px;
-  font-size: 1.4rem;
+  padding: 12px 0 12px 14px;
+  margin: 0 0 16px;
+  font-size: 1.2rem;
   color: #f0d8d9;
   font-family: "Lato", Verdana, sans-serif;
-  font-weight: 400;
 }
 
 .form input:focus {
@@ -578,31 +677,28 @@ input:-webkit-autofill:focus  {
 
 .form input::placeholder {
   font-size: 1.2rem;
-  line-height: 2.2rem;
+  line-height: 1.2rem;
   color: #f48c8f;
   font-family: "Lato", Verdana, sans-serif;
-  font-weight: 400;  
 }
 
 .form textarea {
   width: 100%;
-  height: 203px;
-  padding: 12px 0 0 15px;
+  height: 159px;
+  padding: 10px 0 0 14px;
   border: transparent;
   border-radius: 5px;
   background-color: #d6564f;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   color: #f0d8d9;
   font-family: "Lato", Verdana, sans-serif;
-  font-weight: 400;
 }
 
 .form textarea::placeholder {
   font-size: 1.2rem;
-  line-height: 2.2rem;
+  line-height: 1.2rem;
   color: #f48c8f;
   font-family: "Lato", Verdana, sans-serif;
-  font-weight: 400;
 }
 
 .form textarea:focus {
@@ -744,15 +840,17 @@ input:-webkit-autofill:focus  {
   }
 
   .slide-first {
+    display: flex;
+    justify-content: center;
     padding: 215px 103px 213px 81px;  
   }
 
   .vertical {
-    right: 50px;
+    right: 0;
   }
   
   .horizontal {
-    right: 75px;
+    right: 30px;
   }
 
   .horizontal__image {
@@ -796,7 +894,74 @@ input:-webkit-autofill:focus  {
   .portfolio-image {
     flex-basis: calc(100% / 3 - 20px);  
   }
-}
+
+  .about-us {
+    padding: 52px 40px 75px 40px;
+    box-shadow: none;
+  }
+
+  .about-us h2 {
+    line-height: 3.6rem;
+  }
+  
+  .about-us p {
+    margin: 14px 0 28px;
+  }
+  
+  .our-employee p {
+    margin: 5px 0 12px;
+    font-weight: normal;     
+  }
+ 
+  .social-ellipse {
+    margin-right: 8px;
+  }  
+
+  .get-a-quote {
+    background-color: #f06c64;
+    padding: 53px 37px 45px 42px;
+  }
+    
+  .get-a-quote-text {
+    margin: 0 0 19px;
+  }
+  
+  .form {
+    flex-basis: 64.2442%;
+  }
+  
+  .form input {
+    padding: 12px 0 12px 10px;
+    margin: 0 0 12px;
+  }
+
+  .form textarea {
+    padding: 9px 0 0 10px;
+  }
+
+  .form button {
+    margin: 17px 0 0;
+  }
+
+  .contact-information {
+    flex-basis: 32.1221%;
+  }
+
+  .contact-information h4 {
+    margin: 0 0 5px;
+  }
+  
+  .contact-information p {
+    font-weight: normal;
+    margin: 0 0 10px;
+  }
+  
+  .contact {
+    font-weight: normal;
+    text-align: justify;
+    margin: 0 0 3px;
+  }
+} 
 
 @media screen and (max-width: 768px) {
 
@@ -811,6 +976,7 @@ input:-webkit-autofill:focus  {
   }
    
   .slide-first {
+    justify-content: unset;
     padding: 133px 103px 156px 81px;  
   }
 
@@ -831,10 +997,6 @@ input:-webkit-autofill:focus  {
   .prev {
     left: 30px;    
   }  
-
-  .layout-3-column {
-    justify-content: flex-start;
-  }
 
   .services {
     padding: 39px 20px 25px 40px;
@@ -886,7 +1048,300 @@ input:-webkit-autofill:focus  {
     color: #767e9e;
     font-weight: normal;
   }
+  
   .button:first-child {
     padding: 5px 7px 5px 7px;
+  }  
+}
+
+@media screen and (max-width: 767px) {
+
+  .logo h1 {
+    font-size: 1.96875rem;
+    line-height: 2.4rem;
+    letter-spacing: -0.03em;
+  }
+
+  .logo:after {
+    font-size: 1.96875rem;
+  }
+
+  .logo {
+    flex-grow: 1;
+    text-align: center;
+  }
+
+  .burger {
+    display: block;    
+  }
+
+  .header {
+    position: static;
+    top: auto;
+    z-index: auto;
+    padding: 24px 20px 23px 20px;
+    border: none;
+  }
+
+  .header-nav {
+    display: none;
+  }
+
+  .slider-wrapper {
+    margin-top: 0;
+  }
+
+  .iphone {
+    padding: 5px 23px 5px 22px; 
+    border-radius: 10px; 
+    width: 100%;
+  }
+  
+  .iphone__screen {
+    height: 69px;
+    width: 122px;
+  }
+
+  .slide-first {
+    justify-content: center;
+    padding: 65px 0 76px 0;  
+  }
+
+  .vertical {
+    right: 10px;
+    box-shadow: -9px 9px #ce5d56;
+  }
+  
+  .horizontal {
+    right: 30px;
+    box-shadow: 9px 9px #ce5d56;
+  }
+
+  .horizontal__image {
+    background: url("./assets/images/iphone/hor_background-mobile.jpg") no-repeat;
+  }
+  
+  .vertical__image {
+    background: url("./assets/images/iphone/ver_background-mobile.jpg") no-repeat;
+  }
+
+  .iphone__cam {
+    top: calc(50% - 1.5px);
+    width: 1.44px;
+    height: 1.44px;
+    right: 5.96px;
+  }
+  
+  .iphone__speaker {
+    top: calc(50% - 6.6px);
+    width: 1.83px;
+    height: 13.21px;
+    right: 13.21px;
+  }
+  
+  .iphone__home_button {
+    top: calc(50% - 7.7px);
+    left: 3.07px;
+    width: 15.4px;
+    height: 15.4px;
+  }
+  
+  .next {
+    right: 10px;
+  }
+  
+  .prev {
+    left: 10px;    
+  }  
+
+  .arrow {
+    width: 14px;
+    height: 25px;
+    top: calc(50% - 12.5px);
+  }
+
+  .services {
+    padding: 25px 43px 0 32px;
+    box-shadow: none;
+  }
+  
+  .services h2 {
+    line-height: 3.6rem;
+    font-weight: 900;
+    margin: 0;
+  }
+  
+  .services-text {
+    margin: 18px 0 25px;
+    padding: 0;
+    text-align: left;
+  }
+  
+  .services-description {
+    flex-basis: 100%;
+    padding: 0 0 28px;
+  }
+  
+  .services-description h3 {
+    margin-bottom: 7px;
+  }
+
+  .portfolio {
+    padding: 42px 30px 28px;
+  }
+
+  .portfolio p {
+    margin: 32px 7px 20px 0;
+    text-align: left;
+  }
+
+  .navigation {
+    margin-bottom: 25px;
+  }
+
+  .button {
+    border-radius: 5px;
+    border: 1px solid #767e9e;
+    padding: 4px 7px 6px;
+    margin-right: 10px;
+    line-height: 1.2rem;
+    color: #767e9e;
+    font-weight: normal;
+  }
+  .button:first-child {
+    padding: 5px 7px 5px 7px;
+  }  
+
+  .layout-4-column {
+    margin: 0 -6.5px;
+  }
+
+  .portfolio-image:nth-child(n + 9) {
+    display: none;
+  }
+
+  .portfolio-image {
+    margin: 0 6.5px 14px 6.5px;
+    flex-basis: calc(100% / 2 - 13px);
+  }
+
+  .about-us {
+    padding: 33px 30px 11px 30px;
+    box-shadow: none;
+  }
+  
+  .about-us p {
+    margin: 14px 0 20px;
+    text-align: left; 
+    padding-right: 6px; 
+  }
+    
+  .our-employee {
+    flex-basis: 100%;
+    padding: 0 0 34px;
+  }
+
+  .our-employee h5 {
+    margin: 18px 0 0;
+  }
+  
+  .our-employee p {
+    margin: 5px 0 9px;
+    font-weight: normal; 
+  }
+
+  .get-a-quote {
+    padding: 44px 30px 42px;
+    box-shadow: none;
+  }
+   
+  .get-a-quote-text {
+    text-align: left;
+    margin: 0 0 25px;
+    padding-right: 6px;
+  }
+ 
+  .form {
+    flex-basis: 100%;
+  }
+  
+  .contact-information {
+    flex-basis: 100%;
+  }
+  
+  .form input {
+    padding: 13px 0 13px 7px;
+    margin: 0 0 12px;
+  }
+    
+  .form textarea {
+    height: 159px;
+    padding: 9px 0 0 7px;
+  }
+  
+  .form button {
+    padding: 15px 0;
+    width: 100%;
+    margin-bottom: 32px;
+  }
+
+  .contact-information h4 {
+    margin: 0;
+  }
+  
+  .contact-information p {
+    margin: 5px 0 12px;
+  }
+    
+  .contact__icon {
+    margin-right: 12px;
+  }
+
+  .contact:last-child {
+    margin: 0;
+  }
+  
+  .footer {
+    padding: 22px 0;
+    justify-content: center;
+  }
+  
+  .copyright {
+    display: none;
   }
 }
+
+@media screen and (max-width: 375px) {
+
+  .slide-first {
+    justify-content: unset;
+  }
+
+  .vertical {
+    right: 0;
+  }
+  
+  .horizontal {
+    right: 8px;
+  }
+}
+
+@media screen and (max-width: 374px) {
+
+  .slide-first {
+    justify-content: center;
+  }
+
+  .button {
+    font-size: 1rem;
+  }
+
+  .vertical {
+    right: 7px;
+  }
+    
+  .horizontal {
+    right: 41px;
+  }
+}
+  
